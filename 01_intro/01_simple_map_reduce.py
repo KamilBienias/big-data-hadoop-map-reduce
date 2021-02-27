@@ -24,7 +24,7 @@ from mrjob.job import MRJob
 #     $ python 01_count_words_job.py -r emr s3://bucket-name/data.txt
 
 
-# rozszerza klase MRJob
+# rozszerza klase MRJob.
 class MRWordCount(MRJob):
 
     # nadpisuje dwie metody
