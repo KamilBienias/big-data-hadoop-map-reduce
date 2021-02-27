@@ -1,3 +1,5 @@
+# Etap7. Odcinek: MapRedude: Iliada - word count + regex cz.2
+
 import re
 
 # takiego typu wyrazenie szukamy
