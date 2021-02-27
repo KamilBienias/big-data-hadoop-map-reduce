@@ -22,6 +22,8 @@ class MRMostCommonWord(MRJob):
         for word in words:
             yield word.lower(), 1
 
+    # wyswietla kazde slowo i obok ilosc wystapien
+    # ale nie widac gdy oba reduktory uruchomione
     def reducer_count_words(self, word, counts):
         yield word, sum(counts)
 
@@ -29,6 +31,7 @@ class MRMostCommonWord(MRJob):
         # w tupli zamienia kolejnosc key value
         yield None, (value, key)
 
+    # znajduje slowo z najwieksza iloscia wystapien
     def reducer_find_most_common_word(self, key, values):
         # values to lista na przyklad [5, "zone"]
         # max wygeneruje obiekt ktory pierwszy element ma maksymalny
