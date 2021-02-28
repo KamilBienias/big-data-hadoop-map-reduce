@@ -26,6 +26,7 @@ fig.show()
 
 import plotly.graph_objects as go
 
+# jeden slupek obok drugiego
 fig = go.Figure(data=[
                      # pierwszy slad
                      go.Bar(x=df.month, y=df.dep_delay, name='departure delay', marker_color='#517CAA'),
@@ -33,4 +34,11 @@ fig = go.Figure(data=[
                      go.Bar(x=df.month, y=df.arr_delay, name='arrival delay', marker_color='#E09F1F')
                      ],
                layout=go.Layout(title='Average Departure and Arrival Delay by Airline USA 2015'))
+fig.show()
+
+# jeden slupek na drugim
+fig = go.Figure(data=[go.Bar(x=df.month, y=df.dep_delay, name='departure delay', marker_color='#517CAA'),
+                     go.Bar(x=df.month, y=df.arr_delay, name='arrival delay', marker_color='#E09F1F')],
+               layout=go.Layout(title='Average Departure and Arrival Delay by Month USA 2015-01',
+                               barmode='stack'))
 fig.show()
