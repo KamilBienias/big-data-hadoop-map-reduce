@@ -7,7 +7,9 @@ import pandas as pd
 # seperatorem jest tabulator
 # to_split jest kolumna, ktora trzeba podzielic na dwie kolumny.
 # Bez names= to wtedy pierwszy wiersz odczytuje jako naglowek tabeli
-df = pd.read_csv('/home/dell/PycharmProjects/big-data-hadoop-map-reduce/04_airports/average_delay.csv', sep='\t', names=['month', 'to_split'])
+df = pd.read_csv('/home/dell/PycharmProjects/big-data-hadoop-map-reduce/04_airports/average_delay.csv',
+                 sep='\t',
+                 names=['month', 'to_split'])
 # wyciecie [1:-1] pozbywa sie nawiasow kwadratowych.
 # Robi z jednej kolumny dwie Series
 df[['dep_delay', 'arr_delay']] = df.to_split.str[1:-1].str.split(', ').apply(pd.Series)
