@@ -8,7 +8,8 @@ print(df)
 
 import plotly.express as px
 
-px.bar(df, x='airline', y='cr', color='airline')
+fig = px.bar(df, x='airline', y='cr', color='airline')
+fig.show()
 
 import plotly.graph_objects as go
 # wykres kolowy, hole to dziura w srodku
