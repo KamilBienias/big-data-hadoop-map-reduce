@@ -31,6 +31,15 @@ class MRFlights(MRJob):
         # zamiast year kluczem jest None, bo wszedzie rok 2015
         yield None, distance
 
+    def reducer(self, key, values):
+        total = 0
+        num_elements = 0
+        for value in values:
+            total += value
+            num_elements += 1
+        # wyjdzie null    845.578947368421
+        yield None, total / num_elements
+
     # sam licze srednia dla kazdego miesiaca (wrzesnia i lipca)
     def moje_mapper_month(self, _, line):
         # klucz jest oddzielony od wartosci tabulatorem
@@ -47,15 +56,6 @@ class MRFlights(MRJob):
         month = int(month)
         # kluczem jest month
         yield month, distance
-
-    def reducer(self, key, values):
-        total = 0
-        num_elements = 0
-        for value in values:
-            total += value
-            num_elements += 1
-        # wyjdzie null    845.578947368421
-        yield None, total / num_elements
 
     # sam robie reducer zeby pokazywal po kluczu ktorym jest miesiac
     def moje_reducer_month(self, month, values):
