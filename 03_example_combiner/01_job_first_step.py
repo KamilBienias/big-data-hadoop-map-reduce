@@ -18,7 +18,7 @@ class MRJobFirstStep(MRJob):
     def mapper(self, _, line):
         words = WORD_RE.findall(line)
         for word in words:
-            # nie zamienia slow na male
+            # nie zamienia slow na male litery
             yield word, 1
 
     # combiner to taki reduktor ale dzialajacy na kazdej linii osobno
